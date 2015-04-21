@@ -2,14 +2,14 @@ Vagrant.configure(2) do |config|
   config.vm.box = "chef/centos-6.6"
   
   master = <<-master_end
+auto_accept: True
 
-  auto_accept: True
-
-  file_roots:
-    base:
-      - /srv/salt/states
-
-
+file_roots:
+  base:
+    - /srv/salt/states
+pillar_roots:
+  base:
+    - /srv/salt/pillar
 master_end
   
   master_shell = <<-END
